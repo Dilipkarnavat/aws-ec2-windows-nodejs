@@ -5,6 +5,7 @@ import otpGenerator from 'otp-generator'
 import twilio from 'twilio'
 import nodemailer from 'nodemailer'
 import path from 'path'
+import { fileURLToPath } from 'url'
 const router = express.Router()
 // import fast2sms from 'fast-two-sms'
 // import generateOTP from '../frontend/src/Generate_otp.js'
@@ -12,13 +13,13 @@ const accountSid = "AC1c0cd30e118221249377eb2373469b6c";
 const authToken = "b5bef11bb71b4dd7df6257a3b2dedb51";
 const client = twilio(accountSid, authToken)
 let OTP;
-// const __dirname=path.resolve()
-// router.get('/',(req,res)=>{
-//     res.sendFile(path.join(__dirname ,'../frontend/public/index.html'))
+const __dirname=path.resolve()
 
-// })
+router.use('/', express.static(path.join(__dirname, '/frontend/build')));
+router.get('/', function (request, response) {
+  response.sendFile(path.join(__dirname, '/frontend/build', '/index.html'));
+});
 router.get('/mail', async (req, res) => {
-    // console.log(__dirname,path.join(__dirname));
     let transporter = nodemailer.createTransport({
         host: "smtp.ethereal.email",
         port: 587,

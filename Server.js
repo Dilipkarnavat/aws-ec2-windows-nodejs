@@ -9,11 +9,11 @@ import bodyParser from 'body-parser'
 dotenv.config()
 const PORT = process.env.PORT
  const con = mysql.createConnection({
-  host: "localhost",
+  host: "database-1.cvtayqzstpus.ap-south-1.rds.amazonaws.com",
   port:'3306',
-  user: "root",
-  password: "",
-  database: "new_db"
+  user: "admin",
+  password: "password",
+  database: "rds_db"
 });
 
 con.connect(function (err) {
@@ -32,12 +32,12 @@ app.use(cors())
 app.use('/', router)
 router.options('/', cors())
 
-if(process.env.NODE_ENV == 'production'){
-  app.use(express.static('frontend/build'));
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
-  })
-}
+// if(process.env.NODE_ENV == 'production'){
+//   app.use(express.static('frontend/build'));
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+//   })
+// }
 app.listen(PORT, function () {
   console.log(`server is running on port ${PORT}`);
 })
