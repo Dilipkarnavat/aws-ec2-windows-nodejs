@@ -25,7 +25,7 @@ export default function Create_acc() {
   const [conpassworderror, setconpassworderror] = useState(false)
 
   useEffect(() => {
-    axios.get('/getdata')
+    axios.get('http://loundry-env-1.eba-hc75mtzh.ap-south-1.elasticbeanstalk.com/getdata')
       .then((data) => console.log(data))
   })
   var uname_check = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
