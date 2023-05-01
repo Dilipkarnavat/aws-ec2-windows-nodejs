@@ -14,7 +14,7 @@ export default function Forgot_password() {
   const [number, setnumber] = useState()
   const [numbererr, setnumbererr] = useState(false)
 
-  axios.get('http://localhost:9000/getdata')
+  axios.get('/getdata')
     .then((data) => settel(data.data[data.data.length - 1].tel))
 
   function new_password() {

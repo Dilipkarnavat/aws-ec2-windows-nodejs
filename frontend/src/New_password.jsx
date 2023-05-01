@@ -17,7 +17,7 @@ export default function New_password() {
         navigate('/forgot-password')
     }
     useEffect(() => {
-        axios.get('http://localhost:9000/getdata')
+        axios.get('/getdata')
             .then((data) => setid(data.data[data.data.length - 1].id))
     }, [])
     console.log(id);
@@ -28,7 +28,7 @@ export default function New_password() {
 
         } else {
             if (newconpassword == newpassword) {
-                axios.put('http://localhost:9000/edit/' + id, { newpassword: newpassword }).then((res) => {
+                axios.put('/edit/' + id, { newpassword: newpassword }).then((res) => {
                     console.log(res);
                 })
                 navigate('/login')

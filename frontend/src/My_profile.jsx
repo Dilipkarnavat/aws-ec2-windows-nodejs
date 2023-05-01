@@ -10,7 +10,7 @@ export default function My_profile() {
 
     
      useEffect(() => {
-        axios.get('http://localhost:9000/getdata')
+        axios.get('/getdata')
           .then((data) => setmyprofile(data.data[data.data.length - 1]))
         },[])
         console.log(myprofile.tel);
@@ -39,7 +39,7 @@ export default function My_profile() {
             // <GoogleLogin
             //     onSuccess={res => {
             //         console.log(res);
-            //         axios.post('http://localhost:9000/jwtToken', {
+            //         axios.post('/jwtToken', {
             //             jwtToken: res.credential
             //         }).then((res) => settokeninfo(res.data.picture))
             //     }}

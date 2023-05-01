@@ -25,7 +25,7 @@ export default function Create_acc() {
   const [conpassworderror, setconpassworderror] = useState(false)
 
   useEffect(() => {
-    axios.get('http://localhost:9000/getdata')
+    axios.get('/getdata')
       .then((data) => console.log(data))
   })
   var uname_check = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
@@ -36,7 +36,7 @@ export default function Create_acc() {
   var password_check = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
   // const [verifyemail,setverifyemail]=useState()
-  // axios.get('http://localhost:9000/getdata')
+  // axios.get('/getdata')
   //   .then((data) => setverifyemail(data.data.email))
   //   console.log(verifyemail);
   function signup() {
@@ -70,7 +70,7 @@ export default function Create_acc() {
     if (email != "") {
       const xhr = new XMLHttpRequest();
 
-      xhr.open('POST', 'http://localhost:9000/verify_email', true);
+      xhr.open('POST', '/verify_email', true);
 
       xhr.setRequestHeader('Content-Type', 'application/json');
 
@@ -82,7 +82,7 @@ export default function Create_acc() {
             alert('Email Already Exists...')
           }
           else {
-            axios.post('http://localhost:9000/signup', {
+            axios.post('/signup', {
               Uname: uname,
               email: email,
               tel: tel,

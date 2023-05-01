@@ -10,7 +10,7 @@ export default function Verifyotp() {
 
     const [otperr, setotperr] = useState(false)
     const Verify = () => {
-        axios.get('http://localhost:9000/getotp')
+        axios.get('/getotp')
             .then((otp) => {
                 setotp(otp);
             }).catch((err) => {
@@ -25,7 +25,7 @@ export default function Verifyotp() {
         }
     }
     function Resend_OTP() {
-        axios.post('http://localhost:9000/otpsent', {
+        axios.post('/otpsent', {
                 number: document.getElementById('number').value
             }).then((data) => console.log(data))
     }

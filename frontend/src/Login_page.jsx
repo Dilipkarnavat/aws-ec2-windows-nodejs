@@ -12,13 +12,13 @@ export default function Login_page() {
     const [numbererr, setnumbererr] = useState(false)
     const [passworderr, setpassworderr] = useState(false)
 
-    axios.get('http://localhost:9000/getdata')
+    axios.get('/getdata')
         .then((data) => [settel(data.data[data.data.length - 1].tel), setpassword(data.data[data.data.length - 1].password)])
 
 
     const sentOTP = () => {
         if (tel == number && password == userpassword) {
-            axios.post('http://localhost:9000/otpsent', {
+            axios.post('/otpsent', {
                 number: document.getElementById('number').value
             }).then((data) => console.log(data))
             document.getElementById('number').value = ""

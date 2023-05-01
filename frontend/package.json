@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "proxy":"http://localhost:9000",
+  "proxy":"http://loundry-env-1.eba-hc75mtzh.ap-south-1.elasticbeanstalk.com",
   "dependencies": {
     "@react-oauth/google": "^0.9.0",
     "@testing-library/jest-dom": "^5.16.5",
